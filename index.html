@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parthapratim Jana — Pharmacovigilance & Drug Safety Associate</title>
+<meta name="description" content="Parthapratim Jana — B.Pharm graduate specializing in Pharmacovigilance, ICSR case processing, MedDRA coding, and drug safety surveillance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #070b12;
+    --bg-2: #0c1220;
+    --panel: rgba(255,255,255,0.035);
+    --panel-border: rgba(255,255,255,0.08);
+    --teal: #2dd4bf;
+    --cyan: #38bdf8;
+    --amber: #fbbf24;
+    --text: #e7edf5;
+    --text-dim: #92a1b5;
+    --text-dimmer: #5c6b80;
+    --danger: #f87171;
+    --radius: 16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(45,212,191,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(56,189,248,0.08), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  ::selection{background:rgba(45,212,191,0.35);}
+
+  /* background grid texture */
+  .bg-grid{
+    position:fixed;inset:0;z-index:-1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse 100% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,11,18,0.7);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--panel-border);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:pulseDot 2s infinite;}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
+  .navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--text-dim);}
+  .navlinks a:hover{color:var(--teal);}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,var(--teal),var(--cyan));
+    color:#04141a;font-weight:700;font-size:13px;
+    padding:9px 18px;border-radius:100px;
+  }
+  .nav-cta:hover{filter:brightness(1.08);}
+  .burger{display:none;background:none;border:1px solid var(--panel-border);color:var(--text);width:38px;height:38px;border-radius:8px;font-size:16px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 60px;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  .badge-line{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--panel-border);background:var(--panel);
+    padding:6px 14px;border-radius:100px;font-size:12.5px;color:var(--teal);
+    font-weight:600;letter-spacing:0.02em;margin-bottom:22px;
+  }
+  .badge-line i{font-size:8px;}
+  .hero h1{font-size:46px;font-weight:700;line-height:1.08;margin-bottom:14px;}
+  .hero h1 span{
+    background:linear-gradient(135deg,var(--teal),var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .role{font-size:17px;color:var(--text-dim);font-weight:500;margin-bottom:22px;max-width:520px;}
+  .hero .role b{color:var(--text);font-weight:600;}
+  .contact-bar{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:13.5px;color:var(--text-dim);margin-bottom:30px;}
+  .contact-bar a, .contact-bar span.item{display:flex;align-items:center;gap:7px;}
+  .contact-bar a:hover{color:var(--teal);}
+  .contact-bar i{color:var(--teal);font-size:13px;width:14px;text-align:center;}
+  .bar-sep{color:var(--text-dimmer);}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:13px 24px;border-radius:11px;font-weight:700;font-size:14.5px;
+    border:1px solid transparent;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(135deg,var(--teal),var(--cyan));color:#04141a;}
+  .btn-ghost{background:var(--panel);border-color:var(--panel-border);color:var(--text);}
+
+  .hero-photo-wrap{position:relative;display:flex;justify-content:center;}
+  .hero-photo-ring{
+    position:relative;width:320px;height:320px;border-radius:28px;
+    padding:3px;background:linear-gradient(150deg,var(--teal),transparent 40%, var(--cyan));
+  }
+  .hero-photo-ring img{
+    width:100%;height:100%;object-fit:cover;border-radius:26px;display:block;
+    filter:saturate(1.02) contrast(1.02);
+  }
+  .float-chip{
+    position:absolute;background:rgba(12,18,29,0.9);border:1px solid var(--panel-border);
+    backdrop-filter:blur(10px);border-radius:12px;padding:10px 14px;font-size:12px;
+    display:flex;align-items:center;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  }
+  .float-chip i{color:var(--teal);}
+  .chip-1{top:-14px;left:-24px;animation:floaty 4.5s ease-in-out infinite;}
+  .chip-2{bottom:10px;right:-30px;animation:floaty 5.5s ease-in-out infinite 0.6s;}
+  .chip-3{bottom:-18px;left:20px;animation:floaty 5s ease-in-out infinite 1.2s;}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+
+  /* EKG pulse divider */
+  .pulse-divider{width:100%;height:46px;opacity:0.55;margin:8px 0 0;}
+  .pulse-divider path{
+    fill:none;stroke:var(--teal);stroke-width:2;
+    stroke-dasharray:1000;stroke-dashoffset:1000;
+    animation:draw 3.5s ease-in-out infinite;
+  }
+  @keyframes draw{
+    0%{stroke-dashoffset:1000;}
+    50%{stroke-dashoffset:0;}
+    100%{stroke-dashoffset:-1000;}
+  }
+
+  /* ---------- STAT STRIP ---------- */
+  .stats{border-top:1px solid var(--panel-border);border-bottom:1px solid var(--panel-border);background:rgba(255,255,255,0.015);position:relative;overflow:hidden;}
+  .stats::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg, transparent, var(--teal), var(--cyan), var(--teal), transparent);
+    opacity:0.7;
+  }
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:38px 0;}
+  .stat-item{
+    position:relative;text-align:center;padding:22px 14px 20px;border-radius:14px;
+    background:var(--panel);border:1px solid var(--panel-border);
+    overflow:hidden;transition:transform .2s ease, border-color .2s ease;
+  }
+  .stat-item:hover{transform:translateY(-4px);border-color:rgba(45,212,191,0.35);}
+  .stat-item::before{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:46px;height:3px;border-radius:0 0 4px 4px;
+    background:linear-gradient(90deg,var(--teal),var(--cyan));
+    box-shadow:0 0 12px rgba(45,212,191,0.6);
+  }
+  .stat-icon{width:34px;height:34px;margin:0 auto 12px;border-radius:9px;background:rgba(45,212,191,0.12);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:14px;}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--teal);}
+  .stat-label{font-size:11.5px;color:var(--text-dim);margin-top:5px;text-transform:uppercase;letter-spacing:0.06em;}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:86px 0;}
+  .sec-head{margin-bottom:44px;max-width:640px;}
+  .sec-eyebrow{font-size:12.5px;color:var(--teal);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .sec-eyebrow::before{content:'';width:26px;height:2px;background:var(--teal);}
+  .sec-head h2{font-size:32px;font-weight:700;margin-bottom:12px;}
+  .sec-head p{color:var(--text-dim);font-size:15px;}
+
+  .glass{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:var(--radius);
+    backdrop-filter:blur(6px);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .about-photo{width:96px;height:96px;border-radius:16px;padding:2px;background:linear-gradient(150deg,var(--teal),var(--cyan));margin-bottom:18px;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block;}
+  .about-grid p{color:var(--text-dim);font-size:15.5px;margin-bottom:16px;}
+  .about-grid p b{color:var(--text);font-weight:600;}
+  .focus-list{display:flex;flex-direction:column;gap:14px;}
+  .focus-item{display:flex;gap:14px;padding:16px;}
+  .focus-item i{color:var(--teal);font-size:17px;width:20px;padding-top:2px;}
+  .focus-item h4{font-size:14.5px;margin-bottom:4px;}
+  .focus-item p{color:var(--text-dim);font-size:13.5px;margin:0;}
+
+  /* ---------- TIMELINE (education/experience) ---------- */
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--teal),transparent);}
+  .tl-item{position:relative;padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute;left:-32px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--teal);box-shadow:0 0 0 4px rgba(45,212,191,0.12);}
+  .tl-card{padding:20px 22px;}
+  .tl-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .tl-top h3{font-size:16.5px;}
+  .tl-date{font-size:12px;color:var(--teal);font-weight:600;background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:100px;white-space:nowrap;}
+  .tl-org{font-size:13.5px;color:var(--text-dim);margin-bottom:10px;}
+  .tl-card ul{display:flex;flex-direction:column;gap:6px;}
+  .tl-card li{font-size:13.5px;color:var(--text-dim);padding-left:16px;position:relative;}
+  .tl-card li::before{content:'▹';position:absolute;left:0;color:var(--teal);}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:54px;}
+
+  /* ---------- PROJECTS ---------- */
+  .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .proj-card{padding:26px 26px 24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s ease, transform .2s ease;}
+  .proj-card:hover{border-color:rgba(45,212,191,0.4);transform:translateY(-3px);}
+  .proj-top{display:flex;align-items:center;justify-content:space-between;}
+  .proj-icon{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(45,212,191,0.18),rgba(56,189,248,0.1));display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:17px;}
+  .proj-tag{font-size:11px;color:var(--text-dimmer);border:1px solid var(--panel-border);padding:4px 9px;border-radius:100px;}
+  .proj-card h3{font-size:17px;}
+  .proj-card .proj-meta{font-size:12px;color:var(--text-dimmer);}
+  .proj-card ul{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+  .proj-card li{font-size:13.5px;color:var(--text-dim);padding-left:16px;position:relative;}
+  .proj-card li::before{content:'▹';position:absolute;left:0;color:var(--teal);}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+  .pill{font-size:11px;background:rgba(255,255,255,0.05);border:1px solid var(--panel-border);color:var(--text-dim);padding:4px 10px;border-radius:100px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .skill-card{padding:24px;}
+  .skill-card h3{font-size:15px;display:flex;align-items:center;gap:10px;margin-bottom:16px;color:var(--teal);}
+  .skill-card h3 i{font-size:16px;}
+  .tagwrap{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-size:12.5px;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,0.045);border:1px solid var(--panel-border);color:var(--text-dim);}
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .cert-card{
+    position:relative;padding:22px 20px 20px 24px;overflow:hidden;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .cert-card::before{
+    content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+    background:linear-gradient(var(--teal),var(--cyan));
+  }
+  .cert-card:hover{transform:translateY(-4px);border-color:rgba(45,212,191,0.4);}
+  .cert-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;}
+  .cert-badge{
+    width:38px;height:38px;flex:none;border-radius:10px;
+    background:rgba(45,212,191,0.1);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;
+  }
+  .cert-cat{font-size:10.5px;color:var(--text-dimmer);border:1px solid var(--panel-border);padding:3px 9px;border-radius:100px;white-space:nowrap;}
+  .cert-card h4{font-size:14.5px;margin-bottom:3px;}
+  .cert-card p{font-size:12.5px;color:var(--text-dim);}
+  .cert-score{display:inline-block;margin-top:8px;font-size:11px;color:var(--amber);font-weight:600;background:rgba(251,191,36,0.1);padding:3px 9px;border-radius:100px;}
+
+  /* ---------- RESUME CTA ---------- */
+  .resume-band{
+    padding:52px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;
+    background:linear-gradient(135deg, rgba(45,212,191,0.08), rgba(56,189,248,0.04));
+    border:1px solid var(--panel-border);border-radius:22px;
+  }
+  .resume-band h3{font-size:22px;margin-bottom:8px;}
+  .resume-band p{color:var(--text-dim);font-size:14px;max-width:420px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .contact-card{padding:30px;}
+  .contact-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--panel-border);}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-row .ic{width:42px;height:42px;border-radius:11px;background:rgba(45,212,191,0.1);color:var(--teal);display:flex;align-items:center;justify-content:center;flex:none;}
+  .contact-row .lbl{font-size:11.5px;color:var(--text-dimmer);text-transform:uppercase;letter-spacing:0.05em;}
+  .contact-row .val{font-size:14.5px;font-weight:600;}
+  .contact-row .val:hover{color:var(--teal);}
+  .avail-box{padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:center;}
+  .avail-box .ok{display:flex;align-items:center;gap:10px;color:var(--teal);font-weight:700;font-size:14px;}
+  .avail-box .ok .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);}
+  .avail-box p{font-size:13.5px;color:var(--text-dim);}
+  .lang-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--panel-border);padding:34px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-inner .fname{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;}
+  .footer-inner .ftag{font-size:12.5px;color:var(--text-dimmer);}
+  .foot-social{display:flex;gap:10px;}
+  .foot-social a{width:36px;height:36px;border-radius:9px;border:1px solid var(--panel-border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:14px;}
+  .foot-social a:hover{color:var(--teal);border-color:var(--teal);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:880px){
+    .navlinks{display:none;}
+    .burger{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo-wrap{order:-1;margin-bottom:10px;}
+    .hero-photo-ring{width:240px;height:240px;}
+    .hero h1{font-size:34px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid,.two-col,.projects-grid,.skills-grid,.cert-grid,.contact-grid{grid-template-columns:1fr;}
+    .resume-band{flex-direction:column;text-align:center;padding:36px 24px;}
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span class="dot"></span> Parthapratim<span class="mono" style="color:var(--text-dim);font-weight:500;"> Jana</span></div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Hire Me</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="badge-line">Open to Pharmacovigilance, Safety Data Analysis & Clinical Data Management roles</div>
+        <h1>Parthapratim Jana</h1>
+        <p class="role">
+          <b>B.Pharm graduate</b> trained in Pharmacovigilance and Clinical Data Management, with hands-on exposure
+          to ICSR processing, MedDRA coding, causality assessment, and clinical safety data analysis.
+          Detail-oriented and quality-focused, with strong analytical skills in data analysis, interpretation,
+          visualization, and trend identification using <b>Excel, SQL, and Power BI</b>, along with knowledge of
+          ICH-GCP, Oracle Argus Safety, and regulatory requirements.
+        </p>
+        <div class="hero-cta">
+          <a href="assets/Parthapratim_Jana_Resume_PV.pdf" class="btn btn-primary" download>Download Resume</a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring">
+          <img src="assets/profile.jpg" alt="Parthapratim Jana">
+        </div>
+      </div>
+    </div>
+
+    <svg class="pulse-divider" viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,30 L280,30 L310,10 L335,50 L360,30 L390,30 L415,18 L435,42 L460,30 L1200,30" />
+    </svg>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">2025</div><div class="stat-label">B.Pharm Graduate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div><div class="stat-label">Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8+</div><div class="stat-label">PV Certifications</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">11+</div><div class="stat-label">PV Skills</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">About</div>
+      <h2>Professional Summary</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>
+          <b>B.Pharm graduate</b> with specialized training in <b>Pharmacovigilance</b>, <b>Drug Safety</b>, and
+          <b>Clinical Data Management</b>, with practical exposure to <b>ICSR case processing</b>, <b>MedDRA five-level
+          coding</b>, <b>causality assessment</b>, seriousness classification, and clinical safety data analysis. Trained in
+          <b>WHO-UMC and Naranjo</b> causality methodologies, <b>Oracle Argus Safety</b> workflows, <b>ICH-GCP</b> principles, and
+          regulatory safety requirements.
+        </p>
+        <p>
+          Experienced in reviewing, cleaning, analyzing, and interpreting real adverse-event datasets, with strong
+          proficiency in <b>data analysis</b>, <b>data visualization</b>, <b>trend identification</b>, and insight generation, supported
+          by hands-on experience with <b>Power BI</b> and analytical tools. Strong focus on <b>data accuracy</b>, quality,
+          consistency, documentation, and <b>compliance</b>, with a structured and analytical approach to safety and
+          clinical data.
+        </p>
+        <p>
+          Seeking to contribute to a pharmaceutical, CRO, or life-sciences organization across Pharmacovigilance,
+          Drug Safety, Clinical Data Management, or Clinical Operations.
+        </p>
+        <p>
+          Currently based in Kolkata, West Bengal — open to relocation across Bengaluru, Hyderabad, Pune, and
+          Kolkata, with an immediate notice period and willingness to work rotational shifts.
+        </p>
+      </div>
+      <div class="focus-list">
+        <div class="focus-item glass">
+          <div><h4>Case Processing &amp; Coding</h4><p>ICSR identification, data entry, follow-up, and MedDRA five-level hierarchy coding.</p></div>
+        </div>
+        <div class="focus-item glass">
+          <div><h4>Causality &amp; Signal Concepts</h4><p>WHO-UMC &amp; Naranjo causality assessment, severity/seriousness classification, signal detection.</p></div>
+        </div>
+        <div class="focus-item glass">
+          <div><h4>Regulatory Timelines</h4><p>GVP modules and regulatory reporting timelines — 7 / 15 / 90-day rules.</p></div>
+        </div>
+        <div class="focus-item glass">
+          <div><h4>Analytical Skills</h4><p>Data analysis, visualization, and trend identification using Excel, Power BI, and SQL.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Background</div>
+      <h2>Education &amp; Experience</h2>
+      <p>Academic foundation, applied PV training, and hands-on workplace experience.</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:15px;color:var(--text-dim);margin-bottom:20px;letter-spacing:0.03em;text-transform:uppercase;">Education &amp; Certification</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card glass">
+              <div class="tl-top"><h3>Institute of Advanced Skill Development</h3><span class="tl-date">Jul 2026 – Present</span></div>
+              <div class="tl-org">Professional Certification — Pharmacovigilance</div>
+              <ul>
+                <li>Trained in ICSR case identification, data entry, and case processing, including MedDRA five-level coding and safety database documentation.</li>
+                <li>Studied causality assessment (WHO-UMC, Naranjo), seriousness/severity classification, and AE narrative writing aligned with ICH-GCP.</li>
+                <li>Practiced safety data validation and consistency checks supporting 7/15/90-day regulatory reporting timelines.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card glass">
+              <div class="tl-top"><h3>Bachelor of Pharmacy (B.Pharm)</h3><span class="tl-date">2025</span></div>
+              <div class="tl-org">RR College of Pharmacy · CGPA 7.3</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card glass">
+              <div class="tl-top"><h3>Higher Secondary</h3><span class="tl-date">2020</span></div>
+              <div class="tl-org">Baita Mahendra Nath High School · 89%</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card glass">
+              <div class="tl-top"><h3>Secondary</h3><span class="tl-date">2018</span></div>
+              <div class="tl-org">Baita Mahendra Nath High School · 86%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:15px;color:var(--text-dim);margin-bottom:20px;letter-spacing:0.03em;text-transform:uppercase;">Work Experience</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card glass">
+              <div class="tl-top"><h3>Pharmacy Trainee</h3><span class="tl-date">Feb 2026 – Jun 2026</span></div>
+              <div class="tl-org">Apollo Pharmacy</div>
+              <ul>
+                <li>Performed accurate data entry and record verification for medication and patient documentation — directly transferable to ICSR data-entry discipline.</li>
+                <li>Applied attention to detail and SOP/process adherence in a regulated healthcare environment while managing multiple time-sensitive tasks.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card glass">
+              <div class="tl-top"><h3>Industrial Training</h3><span class="tl-date">1 Month</span></div>
+              <div class="tl-org">Micro Lab</div>
+              <ul>
+                <li>Gained practical exposure to tablet and capsule manufacturing in a regulated pharmaceutical production environment.</li>
+                <li>Observed QC/QA practices, building a foundation in process adherence and documentation standards.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Projects</div>
+      <h2>Applied Safety &amp; Research Work</h2>
+      <p>Real datasets, structured causality thinking, and reporting-ready outputs.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card glass">
+        <div class="proj-top">
+          <span class="proj-tag">Research Area: Pharmacovigilance</span>
+        </div>
+        <h3>Kymriah Safety Data Analysis &amp; Interactive Power BI Dashboard</h3>
+        <div class="proj-meta">Product Safety Monitoring · Power BI</div>
+        <ul>
+          <li>Analyzed and structured spontaneous adverse-event reporting data for Kymriah (tisagenlecleucel), reviewing seriousness, outcomes, and patient characteristics.</li>
+          <li>Applied causality-assessment thinking to distinguish reporting frequency from causal association, including for Cytokine Release Syndrome (CRS).</li>
+          <li>Performed data cleaning, validation, and consistency checks mirroring core ICSR data-quality principles.</li>
+          <li>Built an interactive Power BI dashboard with KPIs, DAX measures, and drill-downs to surface AE trends.</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">ICSR Data Quality</span><span class="pill">CRS</span>
+        </div>
+      </div>
+
+      <div class="proj-card glass">
+        <div class="proj-top">
+          <span class="proj-tag">Research Area: Formulation Science</span>
+        </div>
+        <h3>Green Synthesis of a Polyherbal Nanosuspension to Treat Depression</h3>
+        <div class="proj-meta">Jul 2025 – Nov 2025</div>
+        <ul>
+          <li>Recorded and interpreted experimental data while performing safety assessment throughout the study.</li>
+          <li>Evaluated formulation characteristics — solubility, bioavailability, particle morphology — via structured data review.</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="pill">Formulation</span><span class="pill">Safety Assessment</span><span class="pill">Data Review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Skills</div>
+      <h2>Key Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card glass">
+        <h3>Pharmacovigilance &amp; Drug Safety</h3>
+        <div class="tagwrap">
+          <span class="tag">ICSR Case Identification &amp; Data Entry</span>
+          <span class="tag">Case Processing &amp; Follow-up</span>
+          <span class="tag">MedDRA Coding (5-Level)</span>
+          <span class="tag">Causality Assessment (WHO-UMC, Naranjo)</span>
+          <span class="tag">Seriousness/Severity Classification</span>
+          <span class="tag">Narrative Writing</span>
+          <span class="tag">Signal Detection Concepts</span>
+          <span class="tag">GVP Modules</span>
+          <span class="tag">Regulatory Timelines (7/15/90-Day)</span>
+          <span class="tag">Safety Database Monitoring</span>
+          <span class="tag">Spontaneous Reporting Review</span>
+        </div>
+      </div>
+      <div class="skill-card glass">
+        <h3>Systems &amp; Regulatory</h3>
+        <div class="tagwrap">
+          <span class="tag">Oracle Argus Safety (Theoretical)</span>
+          <span class="tag">Safety Database Concepts</span>
+          <span class="tag">ICH-GCP</span>
+          <span class="tag">GVP</span>
+          <span class="tag">Data Validation &amp; Consistency</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">SOP Adherence</span>
+          <span class="tag">Excel</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Clinical Data Management</span>
+        </div>
+      </div>
+      <div class="skill-card glass">
+        <h3>Core Competencies</h3>
+        <div class="tagwrap">
+          <span class="tag">Attention to Detail</span>
+          <span class="tag">Problem Solving within Guidelines</span>
+          <span class="tag">Ability to Work Under Supervision</span>
+          <span class="tag">Individual Contributor within a Team</span>
+          <span class="tag">Organization &amp; Time Management</span>
+          <span class="tag">Written &amp; Verbal Communication</span>
+          <span class="tag">Rotational Shift Availability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Credentials</div>
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">CW</div>
+          <span class="cert-cat">Pharmacovigilance</span>
+        </div>
+        <h4>CliniWings Certificate of Excellence</h4>
+        <p>ID: CWTTC000334</p>
+        <span class="cert-score">Scored 95%</span>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">GCP</div>
+          <span class="cert-cat">Clinical Research</span>
+        </div>
+        <h4>Good Clinical Practice (GCP)</h4>
+        <p>NIDA Clinical Trials Network</p>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">PV</div>
+          <span class="cert-cat">Pharmacovigilance</span>
+        </div>
+        <h4>Introduction to Pharmacovigilance</h4>
+        <p>Pharmuni</p>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">AI</div>
+          <span class="cert-cat">Pharma Tech</span>
+        </div>
+        <h4>AI in Pharma</h4>
+        <p>LSSSDC</p>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">XL</div>
+          <span class="cert-cat">Data & Analytics</span>
+        </div>
+        <h4>Business Analytics with Excel</h4>
+        <p>Simplilearn / Microsoft</p>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">CR</div>
+          <span class="cert-cat">Clinical Research</span>
+        </div>
+        <h4>Introduction to Clinical Research</h4>
+        <p>Global Health Training Centre</p>
+        <span class="cert-score">Scored 100%</span>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">BI</div>
+          <span class="cert-cat">Data & Analytics</span>
+        </div>
+        <h4>Power BI</h4>
+        <p>Simplilearn / Microsoft</p>
+      </div>
+      <div class="cert-card glass">
+        <div class="cert-top">
+          <div class="cert-badge">SQL</div>
+          <span class="cert-cat">Data & Analytics</span>
+        </div>
+        <h4>SQL</h4>
+        <p>Apna College</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <div class="resume-band">
+      <div>
+        <h3>Want the full picture?</h3>
+        <p>Download the complete resume — professional summary, key skills, certifications, projects, and work history in one PDF.</p>
+      </div>
+      <a href="assets/Parthapratim_Jana_Resume_PV.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Contact</div>
+      <h2>Let's Work Together</h2>
+      <p>Open to Pharmacovigilance, Drug Safety, and Clinical Research roles — available immediately.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card glass">
+        <div class="contact-row">
+          <div><div class="lbl">Email</div><a class="val" href="mailto:parthapratim1436@gmail.com">parthapratim1436@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div><div class="lbl">Phone</div><a class="val" href="tel:+916370271705">+91 63702 71705</a></div>
+        </div>
+        <div class="contact-row">
+          <div><div class="lbl">LinkedIn</div><a class="val" href="https://www.linkedin.com/in/parthapratim-jana-87a486273" target="_blank" rel="noopener noreferrer">/in/parthapratim-jana-87a486273</a></div>
+        </div>
+        <div class="contact-row">
+          <div><div class="lbl">Location</div><div class="val">Kolkata, West Bengal — open to relocation</div></div>
+        </div>
+      </div>
+
+      <div class="avail-box glass">
+        <div class="ok"><span class="dot"></span> AVAILABLE IMMEDIATELY</div>
+        <p>No notice period required. Open to PV / Drug Safety Associate roles at CROs, and Clinical Research Coordinator / Clinical Operations positions, across Bengaluru, Hyderabad, Pune, and Kolkata.</p>
+        <div>
+          <div class="lbl" style="font-size:11.5px;color:var(--text-dimmer);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Languages</div>
+          <div class="lang-row">
+            <span class="tag">English</span>
+            <span class="tag">Hindi</span>
+            <span class="tag">Bengali</span>
+          </div>
+        </div>
+        <div>
+          <div class="lbl" style="font-size:11.5px;color:var(--text-dimmer);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Shift Availability</div>
+          <div class="lang-row"><span class="tag">Open to Rotational Shifts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="fname">Parthapratim Jana</div>
+      <div class="ftag">Pharmacovigilance &amp; Drug Safety Surveillance · &copy; <span id="yr"></span></div>
+    </div>
+    <div class="foot-social">
+      <a href="mailto:parthapratim1436@gmail.com" aria-label="Email">Email</a>
+      <a href="tel:+916370271705" aria-label="Phone">Call</a>
+      <a href="https://www.linkedin.com/in/parthapratim-jana-87a486273" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
